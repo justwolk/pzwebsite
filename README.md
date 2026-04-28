@@ -41,17 +41,13 @@
 
 ## Реализованные требования
 
-- [x] Семантическая HTML5-разметка (header, nav, main, aside, footer)
 - [x] CSS Grid и Flexbox для сетки
 - [x] CSS Variables для темизации
-- [x] Тёмная тема (переключатель + prefers-color-scheme)
-- [x] Адаптивность (mobile < 768px, tablet ≥ 768px, desktop ≥ 992px)
+- [x] Тёмная тема
+- [x] Адаптивность
 - [x] Бургер-меню на мобильных
-- [x] Доступность (ARIA-атрибуты, alt, focus-visible, keyboard navigation)
 - [x] Микроанимации (hover, focus, модальные окна)
-<!-- comparison page removed; comparison table not included -->
 - [x] Встроенное видео (YouTube iframe, loading="lazy")
-- [x] Форма обратной связи с валидацией (HTML5 + JS)
 - [x] Ленивая загрузка (loading="lazy")
 
 ## Запуск локально
