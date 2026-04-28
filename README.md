@@ -1,6 +1,6 @@
 # Анимации и переходы в вебе
 
-> **Ссылка на GitHub Pages:** https://your-username.github.io/your-repo/ *(заглушка — заменить после деплоя)*
+> **Ссылка на GitHub Pages:** https://justwolk.github.io/pzwebsite/css-transitions.html
 
 ## О проекте
 
@@ -63,5 +63,5 @@
 
 ## Ссылки
 
-- **GitHub Pages:** *(заглушка)*
-- **GitHub репозиторий:** *[(заглушка)](https://github.com/justwolk/pzwebsite/)*
+- **GitHub Pages:** [*(заглушка)*](https://justwolk.github.io/pzwebsite/css-transitions.html)
+- **GitHub репозиторий:** (https://github.com/justwolk/pzwebsite/)
