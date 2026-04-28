@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Анимации и переходы в вебе</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="site-header" role="banner">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="На главную">
+                    🎬 WebAnimate
+                </a>
+
+                <button
+                    class="burger-btn"
+                    id="burger-btn"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav
+                    class="site-nav"
+                    id="site-nav"
+                    role="navigation"
+                    aria-label="Основная навигация"
+                >
+                    <a href="index.html" class="active">Главная</a>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Переключить тему"
+                >
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <div class="page-layout">
+            <main class="main-content" id="main-content">
+                <div class="hero">
+                    <h1>Анимации и переходы в вебе</h1>
+                </div>
+
+                <section>
+                    <h2>Зачем нужны анимации?</h2>
+                    <p>
+                        Просто чтобы было балдёжно
+                    </p>
+
+                </section>
+
+                <section>
+                    <h2>Технологие которые рассмотрим</h2>
+
+                    <div class="card-grid">
+                        <a
+                            href="css-transitions.html"
+                            class="card"
+                            style="text-decoration: none; color: inherit"
+                        >
+                            <h3> CSS Transitions</h3>
+                            <p>
+                                Простые переходы между состояниями элементов:
+                                при наведении, фокусе и других событиях.
+                            </p>
+                        </a>
+
+                        <a
+                            href="css-animations.html"
+                            class="card"
+                            style="text-decoration: none; color: inherit"
+                        >
+                            <h3> CSS Animations</h3>
+                            <p>
+                                Более сложные анимации с ключевыми кадрами
+                                (@keyframes), которые работают автоматически.
+                            </p>
+                        </a>
+
+                        
+
+                        <a
+                            href="keyframes.html"
+                            class="card"
+                            style="text-decoration: none; color: inherit"
+                        >
+                            <h3> @keyframes</h3>
+                            <p>
+                                Детальный разбор ключевых кадров — основы
+                                CSS-анимаций.
+                            </p>
+                        </a>
+
+                        <a
+                            href="performance.html"
+                            class="card"
+                            style="text-decoration: none; color: inherit"
+                        >
+                            <h3> Производительность</h3>
+                            <p>
+                                Как делать анимации быстрыми и не нагружать
+                                браузер лишней работой.
+                            </p>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Видео -->
+                <section>
+                    <h2>Видео: введение в веб-анимации</h2>
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/YszONjKpgg4"
+                            title="Введение в CSS-анимации"
+                            loading="lazy"
+                            allow="
+                                accelerometer;
+                                autoplay;
+                                clipboard-write;
+                                encrypted-media;
+                                gyroscope;
+                                picture-in-picture;
+                            "
+                            allowfullscreen
+                        >
+                        </iframe>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar" role="complementary">
+                <div class="sidebar-block">
+                    <h3>Навигация по разделам</h3>
+                    <nav class="sidebar-nav" aria-label="Навигация по разделам">
+                        <a href="css-transitions.html">CSS Transitions</a>
+                        <a href="css-animations.html">CSS Animations</a>
+                        <a href="keyframes.html">@keyframes</a>
+                    </nav>
+                </div>
+
+                
+
+                <div class="sidebar-block">
+                    <h3>Полезные ссылки</h3>
+                    <nav class="sidebar-nav" aria-label="Полезные ссылки">
+                        <a
+                            href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_animations"
+                            target="_blank"
+                            rel="noopener"
+                            >MDN: CSS Animations</a
+                        >
+                        <a
+                            href="https://web.dev/articles/animations-guide"
+                            target="_blank"
+                            rel="noopener"
+                            >Web.dev: Animations</a
+                        >
+                    </nav>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h4>О проекте</h4>
+                    <p
+                        style="
+                            font-size: 0.875rem;
+                            color: var(--color-text-secondary);
+                            margin: 0;
+                        "
+                    >
+                        Учебный сайт о технологиях анимации в вебе. 
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="contacts.html">Обратная связь</a>
+                    <a href="https://github.com/" target="_blank" rel="noopener"
+                        >GitHub</a
+                    >
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко. Все
+                    права защищены.
+                </p>
+            </div>
+        </footer>
+
+        <!-- Модальное окно -->
+        <div
+            class="modal-overlay"
+            id="modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+            <div class="modal-content">
+                <button
+                    class="modal-close"
+                    onclick="closeModal()"
+                    aria-label="Закрыть"
+                >
+                    &times;
+                </button>
+                <h3 class="modal-title" id="modal-title">Заголовок</h3>
+                <p class="modal-text">Текст модального окна.</p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

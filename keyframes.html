@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@keyframes — WebAnimate</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="site-header" role="banner">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="На главную"
+                    >🎬 WebAnimate</a
+                >
+                <button
+                    class="burger-btn"
+                    id="burger-btn"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+                <nav
+                    class="site-nav"
+                    id="site-nav"
+                    role="navigation"
+                    aria-label="Основная навигация"
+                >
+                    <a href="index.html">Главная</a>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html" class="active">@keyframes</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Переключить тему"
+                >
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <div class="page-layout">
+            <main class="main-content" id="main-content">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <a href="index.html">Главная</a> / <span>@keyframes</span>
+                </nav>
+
+                <h1>@keyframes — ключевые кадры</h1>
+
+                <p>
+                    Правило <code>@keyframes</code> — основа CSS-анимаций. Оно
+                    описывает, какие значения CSS-свойств должны быть в
+                    определённые моменты анимации. Браузер рассчитывает
+                    промежуточные значения автоматически.
+                </p>
+
+                <h2>Синтаксис</h2>
+                <p>
+                    Ключевые кадры задаются в процентах от <code>0%</code> до
+                    <code>100%</code>. Можно также использовать ключевые слова
+                    <code>from</code> (= 0%) и <code>to</code> (= 100%).
+                </p>
+
+                <div class="code-block">
+                    <pre><code>@keyframes имя-анимации {
+  0% {
+    /* начальное состояние */
+  }
+  50% {
+    /* середина */
+  }
+  100% {
+    /* конечное состояние */
+  }
+}</code></pre>
+                </div>
+
+                <h2>Пример: движение по траектории</h2>
+                <p>Элемент движется вправо, вниз, влево и возвращается:</p>
+
+                <div
+                    class="demo-area"
+                    style="
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        min-height: 200px;
+                        position: relative;
+                    "
+                >
+                    <div
+                        class="demo-box"
+                        style="
+                            animation: moveSquare 3s ease-in-out infinite;
+                            position: absolute;
+                        "
+                    >
+                        Путь
+                    </div>
+                </div>
+
+                <style>
+                    @keyframes moveSquare {
+                        0% {
+                            top: 10px;
+                            left: 10px;
+                        }
+                        25% {
+                            top: 10px;
+                            left: calc(100% - 90px);
+                        }
+                        50% {
+                            top: calc(100% - 90px);
+                            left: calc(100% - 90px);
+                        }
+                        75% {
+                            top: calc(100% - 90px);
+                            left: 10px;
+                        }
+                        100% {
+                            top: 10px;
+                            left: 10px;
+                        }
+                    }
+                </style>
+
+                <div class="code-block">
+                    <pre><code>@keyframes moveSquare {
+  0%   { top: 10px; left: 10px; }
+  25%  { top: 10px; left: calc(100% - 90px); }
+  50%  { top: calc(100% - 90px); left: calc(100% - 90px); }
+  75%  { top: calc(100% - 90px); left: 10px; }
+  100% { top: 10px; left: 10px; }
+}
+
+.element {
+  animation: moveSquare 3s ease-in-out infinite;
+  position: absolute;
+}</code></pre>
+                </div>
+
+
+            </main>
+
+            <aside class="sidebar" role="complementary">
+                <div class="sidebar-block">
+                    <h3>На этой странице</h3>
+                    <nav class="sidebar-nav" aria-label="Содержание страницы">
+                        <a href="#main-content">Синтаксис</a>
+                        <a href="#main-content">Движение по траектории</a>
+                    </nav>
+                </div>
+
+                
+
+            </aside>
+        </div>
+
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h4>О проекте</h4>
+                    <p
+                        style="
+                            font-size: 0.875rem;
+                            color: var(--color-text-secondary);
+                            margin: 0;
+                        "
+                    >
+                        Учебный сайт о технологиях анимации в вебе.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="contacts.html">Обратная связь</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко.</p>
+            </div>
+        </footer>
+
+        <div
+            class="modal-overlay"
+            id="modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+            <div class="modal-content">
+                <button
+                    class="modal-close"
+                    onclick="closeModal()"
+                    aria-label="Закрыть"
+                >
+                    &times;
+                </button>
+                <h3 class="modal-title" id="modal-title">Заголовок</h3>
+                <p class="modal-text">Текст.</p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

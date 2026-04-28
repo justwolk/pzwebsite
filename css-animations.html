@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS-анимации — WebAnimate</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="site-header" role="banner">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="На главную"
+                    >🎬 WebAnimate</a
+                >
+                <button
+                    class="burger-btn"
+                    id="burger-btn"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+                <nav
+                    class="site-nav"
+                    id="site-nav"
+                    role="navigation"
+                    aria-label="Основная навигация"
+                >
+                    <a href="index.html">Главная</a>
+                    <a href="css-animations.html" class="active"
+                        >CSS-анимации</a
+                    >
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Переключить тему"
+                >
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <div class="page-layout">
+            <main class="main-content" id="main-content">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <a href="index.html">Главная</a> / <span>CSS-анимации</span>
+                </nav>
+
+                <h1>CSS-анимации</h1>
+
+                <p>
+                    CSS-анимации позволяют плавно изменять свойства элементов
+                    без использования JavaScript. Они описываются через правило
+                    <code>@keyframes</code> и свойство <code>animation</code>.
+                    Это один из самых распространённых способов оживить
+                    интерфейс.
+                </p>
+
+                <h2>Как это работает?</h2>
+                <p>Анимация в CSS состоит из двух частей:</p>
+                <ol>
+                    <li>
+                        Описание ключевых кадров через <code>@keyframes</code> —
+                        что именно меняется.
+                    </li>
+                    <li>
+                        Привязка анимации к элементу через свойство
+                        <code>animation</code> — как долго, сколько раз и с
+                        какой функцией.
+                    </li>
+                </ol>
+
+                <h2>Свойства animation</h2>
+                <p>Основные свойства, которые управляют анимацией:</p>
+
+                <ul>
+                    <li>
+                        <strong>animation-name</strong> — имя анимации (из
+                        @keyframes)
+                    </li>
+                    <li>
+                        <strong>animation-duration</strong> — длительность
+                        (например, <code>1s</code>)
+                    </li>
+                    <li>
+                        <strong>animation-timing-function</strong> — функция
+                        плавности (<code>ease</code>, <code>linear</code>,
+                        <code>ease-in-out</code>)
+                    </li>
+                    <li>
+                        <strong>animation-delay</strong> — задержка перед
+                        началом
+                    </li>
+                    <li>
+                        <strong>animation-iteration-count</strong> — количество
+                        повторений (<code>infinite</code> для бесконечных)
+                    </li>
+                    <li>
+                        <strong>animation-direction</strong> — направление
+                        (<code>normal</code>, <code>reverse</code>,
+                        <code>alternate</code>)
+                    </li>
+                    <li>
+                        <strong>animation-fill-mode</strong> — состояние
+                        до/после (<code>forwards</code>, <code>backwards</code>,
+                        <code>both</code>)
+                    </li>
+                </ul>
+
+                <h2>Пример: пульсация</h2>
+                <div class="demo-area">
+                    <div class="demo-box anim-pulse">Пульс</div>
+                </div>
+
+                <div class="code-block">
+                    <pre><code>@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+.element {
+  animation: pulse 1.5s ease-in-out infinite;
+}</code></pre>
+                </div>
+
+            </main>
+
+            <aside class="sidebar" role="complementary">
+                <div class="sidebar-block">
+                    <h3>На этой странице</h3>
+                    <nav class="sidebar-nav" aria-label="Содержание страницы">
+                        <a href="#main-content">Как это работает</a>
+                        <a href="#main-content">Свойства animation</a>
+                        <a href="#main-content">Примеры</a>
+                    </nav>
+                </div>
+
+                            </aside>
+        </div>
+
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h4>О проекте</h4>
+                    <p
+                        style="
+                            font-size: 0.875rem;
+                            color: var(--color-text-secondary);
+                            margin: 0;
+                        "
+                    >
+                        Учебный сайт о технологиях анимации в вебе.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="contacts.html">Обратная связь</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко.</p>
+            </div>
+        </footer>
+
+        <div
+            class="modal-overlay"
+            id="modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+            <div class="modal-content">
+                <button
+                    class="modal-close"
+                    onclick="closeModal()"
+                    aria-label="Закрыть"
+                >
+                    &times;
+                </button>
+                <h3 class="modal-title" id="modal-title">Заголовок</h3>
+                <p class="modal-text">Текст.</p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

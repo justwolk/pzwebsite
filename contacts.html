@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Обратная связь — WebAnimate</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="site-header" role="banner">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="На главную"
+                    >🎬 WebAnimate</a
+                >
+                <button
+                    class="burger-btn"
+                    id="burger-btn"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+                <nav
+                    class="site-nav"
+                    id="site-nav"
+                    role="navigation"
+                    aria-label="Основная навигация"
+                >
+                    <a href="index.html">Главная</a>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                    <a href="contacts.html" class="active">Контакты</a>
+                </nav>
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Переключить тему"
+                >
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <div class="page-layout">
+            <main class="main-content" id="main-content">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <a href="index.html">Главная</a> / <span>Контакты</span>
+                </nav>
+
+                <h1>Обратная связь</h1>
+
+                <p>
+                    Есть вопросы, предложения или нашли ошибку на сайте?
+                    Заполните форму ниже, и мы обязательно ответим.
+                </p>
+
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="name"
+                            >Имя <span style="color: #cf222e">*</span></label
+                        >
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Ваше имя"
+                            required
+                            minlength="2"
+                            autocomplete="name"
+                        />
+                        <div class="error-msg" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"
+                            >Email <span style="color: #cf222e">*</span></label
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@mail.com"
+                            required
+                            autocomplete="email"
+                        />
+                        <div class="error-msg" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Тема</label>
+                        <select id="subject" name="subject">
+                            <option value="question">Вопрос</option>
+                            <option value="suggestion">Предложение</option>
+                            <option value="bug">Сообщить об ошибке</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message"
+                            >Сообщение
+                            <span style="color: #cf222e">*</span></label
+                        >
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Напишите ваше сообщение (минимум 10 символов)"
+                            required
+                            minlength="10"
+                        ></textarea>
+                        <div class="error-msg" aria-live="polite"></div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Отправить</button>
+                </form>
+
+                <h2 style="margin-top: 48px">Контактная информация</h2>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>📧 Email</h3>
+                        <p>cvetov@example.com</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🏫 Университет</h3>
+                        <p>Группа 122-мко, магистратура</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>🔗 GitHub</h3>
+                        <p>
+                            <a
+                                href="https://github.com/justwolk/"
+                                target="_blank"
+                                rel="noopener"
+                                >github.com</a
+                            >
+                            (заглушка)
+                        </p>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar" role="complementary">
+                <div class="sidebar-block">
+                    <h3>Навигация</h3>
+                    <nav class="sidebar-nav" aria-label="Навигация по разделам">
+                        <a href="index.html">Главная</a>
+                        <a href="css-animations.html">CSS-анимации</a>
+                    </nav>
+                </div>
+
+                
+
+                <div class="sidebar-block">
+                    <h3>Полезные ссылки</h3>
+                    <nav class="sidebar-nav" aria-label="Полезные ссылки">
+                        <a
+                            href="https://developer.mozilla.org/ru/"
+                            target="_blank"
+                            rel="noopener"
+                            >MDN Web Docs</a
+                        >
+                        <a
+                            href="https://web.dev/"
+                            target="_blank"
+                            rel="noopener"
+                            >Web.dev</a
+                        >
+                        <a
+                            href="https://css-tricks.com/"
+                            target="_blank"
+                            rel="noopener"
+                            >CSS-Tricks</a
+                        >
+                    </nav>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h4>О проекте</h4>
+                    <p
+                        style="
+                            font-size: 0.875rem;
+                            color: var(--color-text-secondary);
+                            margin: 0;
+                        "
+                    >
+                        Учебный сайт о технологиях анимации в вебе.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="contacts.html">Обратная связь</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко.</p>
+            </div>
+        </footer>
+
+        <div
+            class="modal-overlay"
+            id="modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+            <div class="modal-content">
+                <button
+                    class="modal-close"
+                    onclick="closeModal()"
+                    aria-label="Закрыть"
+                >
+                    &times;
+                </button>
+                <h3 class="modal-title" id="modal-title">Заголовок</h3>
+                <p class="modal-text">Текст.</p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>

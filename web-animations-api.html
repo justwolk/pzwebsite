@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Animations API — WebAnimate</title>
+  <link rel="stylesheet" href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="На главную">🎬 WebAnimate</a>
+      <button class="burger-btn" id="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" role="navigation" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="css-animations.html">CSS-анимации</a>
+        <a href="css-transitions.html">Переходы</a>
+        <a href="keyframes.html">@keyframes</a>
+        <a href="performance.html">Производительность</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">🌙</button>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <main class="main-content" id="main-content">
+
+      <nav class="breadcrumb" aria-label="Хлебные крошки">
+        <a href="index.html">Главная</a> / <span>Web Animations API</span>
+      </nav>
+
+      <h1>Web Animations API</h1>
+
+      <p>Web Animations API (WAAPI) — это нативный браузерный интерфейс, который объединяет возможности CSS-анимаций и JavaScript. Он позволяет создавать, управлять и контролировать анимации прямо из JavaScript-кода.</p>
+
+      <h2>Зачем нужен WAAPI?</h2>
+      <p>CSS-анимации удобны, но ими сложно управлять из кода: нельзя поставить на паузу, перемотать или динамически изменить параметры. WAAPI решает эту проблему — он даёт программный контроль над анимациями.</p>
+
+      <h2>Метод element.animate()</h2>
+      <p>Основной метод API — <code>animate()</code>, вызываемый на DOM-элементе:</p>
+
+      <div class="code-block">
+        <pre><code>const box = document.querySelector('.box');
+
+const animation = box.animate([
+  { transform: 'translateX(0)', opacity: 1 },
+  { transform: 'translateX(300px)', opacity: 0.5 },
+  { transform: 'translateX(0)', opacity: 1 }
+], {
+  duration: 2000,
+  iterations: Infinity,
+  easing: 'ease-in-out'
+});</code></pre>
+      </div>
+
+      <h2>Живой пример</h2>
+      <div class="demo-area" style="flex-direction: column; gap: 16px;">
+        <div class="demo-box" id="waapi-box">WAAPI</div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+          <button class="btn-primary" id="waapi-play">▶ Запустить</button>
+          <button class="btn-primary" id="waapi-pause" style="background-color: var(--color-accent);">⏸ Пауза</button>
+          <button class="btn-primary" id="waapi-reverse" style="background-color: var(--color-success);">⏪ Реверс</button>
+        </div>
+      </div>
+
+      <script>
+        const waBox = document.getElementById('waapi-box');
+        const waAnimation = waBox.animate([
+          { transform: 'translateX(0) rotate(0deg)', borderRadius: '6px' },
+          { transform: 'translateX(150px) rotate(180deg)', borderRadius: '50%' },
+          { transform: 'translateX(0) rotate(360deg)', borderRadius: '6px' }
+        ], {
+          duration: 2000,
+          iterations: Infinity,
+          easing: 'ease-in-out'
+        });
+        waAnimation.pause();
+
+        document.getElementById('waapi-play').addEventListener('click', () => {
+          waAnimation.play();
+        });
+        document.getElementById('waapi-pause').addEventListener('click', () => {
+          waAnimation.pause();
+        });
+        document.getElementById('waapi-reverse').addEventListener('click', () => {
+          waAnimation.reverse();
+        });
+      </script>
+
+      <h2>Управление анимацией</h2>
+      <p>Объект <code>Animation</code>, возвращаемый методом <code>animate()</code>, предоставляет методы управления:</p>
+
+      <ul>
+        <li><code>animation.play()</code> — запустить</li>
+        <li><code>animation.pause()</code> — поставить на паузу</li>
+        <li><code>animation.reverse()</code> — воспроизвести в обратном порядке</li>
+        <li><code>animation.cancel()</code> — отменить</li>
+        <li><code>animation.finish()</code> — перейти к концу</li>
+        <li><code>animation.currentTime</code> — текущее время (для перемотки)</li>
+        <li><code>animation.playbackRate</code> — скорость воспроизведения</li>
+      </ul>
+
+      <h2>Отличия от CSS-анимаций</h2>
+      <div style="overflow-x: auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th scope="col">Возможность</th>
+              <th scope="col">CSS Animations</th>
+              <th scope="col">Web Animations API</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Описание в CSS</td>
+              <td>Да</td>
+              <td>Нет</td>
+            </tr>
+            <tr>
+              <td>Пауза/воспроизведение</td>
+              <td>Через animation-play-state</td>
+              <td>play() / pause()</td>
+            </tr>
+            <tr>
+              <td>Перемотка</td>
+              <td>Нет</td>
+              <td>currentTime</td>
+            </tr>
+            <tr>
+              <td>Скорость</td>
+              <td>Нет (нужно менять duration)</td>
+              <td>playbackRate</td>
+            </tr>
+            <tr>
+              <td>Динамические значения</td>
+              <td>Нет</td>
+              <td>Да</td>
+            </tr>
+            <tr>
+              <td>Callback при завершении</td>
+              <td>animationend event</td>
+              <td>animation.finished (Promise)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Поддержка браузерами</h2>
+      <p>Web Animations API поддерживается во всех современных браузерах: Chrome, Firefox, Safari, Edge. Для старых браузеров существует полифилл <code>web-animations-js</code>.</p>
+
+      <h2>Когда использовать?</h2>
+      <p>WAAPI подходит, когда нужен программный контроль над анимацией, но не хочется подключать тяжёлую стороннюю библиотеку. Это «золотая середина» между CSS и сторонними библиотеками.</p>
+
+    </main>
+
+    <aside class="sidebar" role="complementary">
+      <div class="sidebar-block">
+        <h3>На этой странице</h3>
+        <nav class="sidebar-nav" aria-label="Содержание страницы">
+          <a href="#main-content">element.animate()</a>
+          <a href="#main-content">Управление</a>
+          <a href="#main-content">Отличия от CSS</a>
+          <a href="#main-content">Поддержка</a>
+        </nav>
+      </div>
+
+      
+
+      <div class="sidebar-block">
+        <h3>Связанные темы</h3>
+        <nav class="sidebar-nav" aria-label="Связанные темы">
+          <a href="css-animations.html">CSS Animations</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>О проекте</h4>
+        <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin: 0;">Учебный сайт о технологиях анимации в вебе.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Разделы</h4>
+        <a href="css-animations.html">CSS-анимации</a>
+        <a href="css-transitions.html">Переходы</a>
+        <a href="keyframes.html">@keyframes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="contacts.html">Обратная связь</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко.</p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()" aria-label="Закрыть">&times;</button>
+      <h3 class="modal-title" id="modal-title">Заголовок</h3>
+      <p class="modal-text">Текст.</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

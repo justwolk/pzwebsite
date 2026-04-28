@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CSS Transitions — WebAnimate</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@primer/css@21.3.3/dist/primer.css"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <header class="site-header" role="banner">
+            <div class="header-inner">
+                <a href="index.html" class="site-logo" aria-label="На главную"
+                    >🎬 WebAnimate</a
+                >
+                <button
+                    class="burger-btn"
+                    id="burger-btn"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="site-nav"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+                <nav
+                    class="site-nav"
+                    id="site-nav"
+                    role="navigation"
+                    aria-label="Основная навигация"
+                >
+                    <a href="index.html">Главная</a>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html" class="active">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                    <a href="contacts.html">Контакты</a>
+                </nav>
+                <button
+                    class="theme-toggle"
+                    id="theme-toggle"
+                    aria-label="Переключить тему"
+                >
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <div class="page-layout">
+            <main class="main-content" id="main-content">
+                <nav class="breadcrumb" aria-label="Хлебные крошки">
+                    <a href="index.html">Главная</a> /
+                    <span>CSS Transitions</span>
+                </nav>
+
+                <h1>CSS Transitions (переходы)</h1>
+
+                <p>
+                    CSS-переходы — самый простой способ добавить анимацию на
+                    сайт. Они позволяют плавно менять значение CSS-свойства при
+                    смене состояния элемента (например, при наведении курсора).
+                </p>
+
+                <h2>Как работают переходы?</h2>
+                <p>
+                    Переход срабатывает, когда значение CSS-свойства меняется.
+                    Вместо мгновенного изменения браузер плавно интерполирует
+                    значение за указанное время.
+                </p>
+
+                <h2>Свойства transition</h2>
+                <ul>
+                    <li>
+                        <strong>transition-property</strong> — какое свойство
+                        анимировать (<code>all</code>, <code>opacity</code>,
+                        <code>transform</code>)
+                    </li>
+                    <li>
+                        <strong>transition-duration</strong> — длительность
+                        перехода (<code>0.3s</code>)
+                    </li>
+                    <li>
+                        <strong>transition-timing-function</strong> — функция
+                        плавности (<code>ease</code>, <code>linear</code>,
+                        <code>cubic-bezier()</code>)
+                    </li>
+                    <li>
+                        <strong>transition-delay</strong> — задержка перед
+                        началом
+                    </li>
+                </ul>
+
+                <h2>Пример: увеличение при наведении</h2>
+                <p>Наведите курсор на квадрат:</p>
+
+                <div class="demo-area">
+                    <div class="demo-box hover-grow">Hover</div>
+                </div>
+
+                <div class="code-block">
+                    <pre><code>.element {
+  transition: transform 0.3s ease;
+}
+
+.element:hover {
+  transform: scale(1.2);
+}</code></pre>
+                </div>
+
+
+            </main>
+
+            <aside class="sidebar" role="complementary">
+                <div class="sidebar-block">
+                    <h3>На этой странице</h3>
+                    <nav class="sidebar-nav" aria-label="Содержание страницы">
+                        <a href="#main-content">Как работают переходы</a>
+                        <a href="#main-content">Свойства transition</a>
+                        <a href="#main-content">Примеры</a>
+                    </nav>
+                </div>
+
+                            </aside>
+        </div>
+
+        <footer class="site-footer" role="contentinfo">
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <h4>О проекте</h4>
+                    <p
+                        style="
+                            font-size: 0.875rem;
+                            color: var(--color-text-secondary);
+                            margin: 0;
+                        "
+                    >
+                        Учебный сайт о технологиях анимации в вебе.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <a href="css-animations.html">CSS-анимации</a>
+                    <a href="css-transitions.html">Переходы</a>
+                    <a href="keyframes.html">@keyframes</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="contacts.html">Обратная связь</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Цветов Дмитрий Ильдарович, группа 122-мко.</p>
+            </div>
+        </footer>
+
+        <div
+            class="modal-overlay"
+            id="modal-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+        >
+            <div class="modal-content">
+                <button
+                    class="modal-close"
+                    onclick="closeModal()"
+                    aria-label="Закрыть"
+                >
+                    &times;
+                </button>
+                <h3 class="modal-title" id="modal-title">Заголовок</h3>
+                <p class="modal-text">Текст.</p>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
