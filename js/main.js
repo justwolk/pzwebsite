@@ -1,4 +1,3 @@
-// ===== Бургер-меню =====
 document.addEventListener('DOMContentLoaded', () => {
   const burgerBtn = document.getElementById('burger-btn');
   const siteNav = document.getElementById('site-nav');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       siteNav.classList.toggle('open');
     });
 
-    // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
       if (!burgerBtn.contains(e.target) && !siteNav.contains(e.target)) {
         burgerBtn.setAttribute('aria-expanded', 'false');
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Закрытие по Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && siteNav.classList.contains('open')) {
         burgerBtn.setAttribute('aria-expanded', 'false');
@@ -28,10 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== Переключение темы =====
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
-    // Загружаем сохранённую тему
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       document.documentElement.setAttribute('data-theme', savedTheme);
@@ -47,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (current === 'light') {
         newTheme = 'dark';
       } else {
-        // Определяем текущую системную тему и переключаем
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         newTheme = prefersDark ? 'light' : 'dark';
       }
@@ -68,19 +62,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ===== Валидация формы обратной связи =====
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       let isValid = true;
 
-      // Проверяем обязательные поля
       const name = contactForm.querySelector('#name');
       const email = contactForm.querySelector('#email');
       const message = contactForm.querySelector('#message');
 
-      // Сброс ошибок
       contactForm.querySelectorAll('.error-msg').forEach(el => {
         el.style.display = 'none';
       });
@@ -101,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (isValid) {
-        // Показываем модальное окно об успешной отправке
         openModal('Спасибо!', 'Ваше сообщение успешно отправлено. Мы свяжемся с вами в ближайшее время.');
         contactForm.reset();
       }
@@ -120,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-  // ===== Модальное окно =====
   window.openModal = function (title, text) {
     const overlay = document.getElementById('modal-overlay');
     if (!overlay) return;
@@ -134,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.add('active');
     overlay.querySelector('.modal-close').focus();
 
-    // Закрытие по клику на overlay
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closeModal();
     });
@@ -147,28 +135,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Закрытие модалки по Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
 
-  // ===== Кнопки запуска анимаций на странице examples =====
   const animBtns = document.querySelectorAll('[data-anim]');
   animBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = document.getElementById(btn.dataset.target);
       const animClass = btn.dataset.anim;
       if (target) {
-        // Убираем все анимации
         target.className = 'demo-box';
-        // Триггерим reflow чтобы анимация перезапустилась
         void target.offsetWidth;
         target.classList.add(animClass);
       }
     });
   });
 
-  // ===== Подписка на рассылку (sidebar) =====
   const subForms = document.querySelectorAll('.subscribe-form');
   subForms.forEach(form => {
     form.addEventListener('submit', (e) => {
