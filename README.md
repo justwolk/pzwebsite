@@ -59,5 +59,5 @@
 
 ## Ссылки
 
-- **GitHub Pages:** [*(заглушка)*](https://justwolk.github.io/pzwebsite/css-transitions.html)
+- **GitHub Pages:** (https://justwolk.github.io/pzwebsite/css-transitions.html)
 - **GitHub репозиторий:** (https://github.com/justwolk/pzwebsite/)
